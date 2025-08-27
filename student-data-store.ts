@@ -19,3 +19,11 @@ export async function studentSave(s: Student) {
     console.log("error adding student", err);
   }
 }
+export async function studentGetAll() {
+  try {
+    const students = await prisma.student.findMany();
+    return students;
+  } catch (err) {
+    console.log("error fetching students", err);
+  }
+}
