@@ -1,6 +1,6 @@
 import express from "express";
 import { Student } from "./StudentModel";
-import { studentSave } from "./student-data-store";
+import { studentSave, studentGetAll } from "./student-data-store";
 
 const router = express.Router();
 
@@ -16,3 +16,12 @@ router.post("/add", async (req, res) => {
 });
 
 export default router;
+
+router.get("/all", async (req, res) => {
+  try {
+    const students = await studentGetAll();
+    res.status(200).json(students);
+  } catch (error) {
+    res.status(500).json({ error: "Error fetching students" });
+  }
+});
