@@ -27,3 +27,14 @@ export async function studentGetAll() {
     console.log("error fetching students", err);
   }
 }
+
+export async function studentDelete(id: number) {
+  try {
+    await prisma.student.delete({
+      where: { id },
+    });
+    console.log("Student Deleted :", id);
+  } catch (err) {
+    console.log("error deleting student", err);
+  }
+}
