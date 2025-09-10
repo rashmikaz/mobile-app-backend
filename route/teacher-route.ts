@@ -1,10 +1,10 @@
 import express from "express";
-import { Teacher } from "./TeacherModel";
+import { Teacher } from "../model/TeacherModel";
 import {
   teacherSave,
   teacherGetAll,
   teacherDelete,
-} from "./teacher-data-store";
+} from "../data-store/teacher-data-store";
 
 const router = express.Router();
 
