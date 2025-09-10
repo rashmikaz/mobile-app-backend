@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import studentRoute from "./student-route";
+import teacherRoute from "./teacher-route";
 
 const app = express();
 
@@ -8,6 +9,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/student", studentRoute);
+app.use("/teacher", teacherRoute);
 
 const PORT = 3000;
 app.listen(PORT, () => {
